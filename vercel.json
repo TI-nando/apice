@@ -1,0 +1,12 @@
+{
+  "builds": [
+    { "src": "server/api/**/*.ts", "use": "@vercel/node" },
+    { "src": "client/package.json", "use": "@vercel/static-build", "config": { "distDir": "dist", "buildCommand": "npm run build" } }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/server/api/index.ts" },
+    { "src": "/(.*)", "dest": "/client/dist/$1" },
+    { "src": "/", "dest": "/client/dist/index.html" },
+    { "src": "/((?!api).*)", "dest": "/client/dist/index.html" }
+  ]
+}

@@ -28,7 +28,7 @@ export default function Layout({ children }: Props) {
       {sidebarOpen && <Sidebar />}
       <div className="flex flex-col min-h-screen">
         <Navbar dark={dark} onToggleDark={() => setDark((d) => !d)} onOpenAI={() => { window.dispatchEvent(new CustomEvent('open-ai-advisor')); }} onToggleSidebar={() => setSidebarOpen((s) => !s)} />
-        <main className="p-6 space-y-6 max-w-7xl mx-auto w-full fade-in-up">
+        <main className="p-6 space-y-6 max-w-7xl mx-auto w-full fade-in-up brand-bg">
           {children}
         </main>
       </div>

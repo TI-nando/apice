@@ -6,7 +6,7 @@ export default function Sidebar() {
   return (
     <aside className="glass-sidebar p-4 md:p-6 md:static md:w-auto fixed left-0 top-0 h-full w-72 z-50 overflow-y-auto">
       <div className="flex items-center gap-2 mb-6">
-        <img src="/logo-apice.png" alt="Ápice" className="h-8 w-8 rounded border border-amber-500/40 object-cover" />
+        <img src="/logo-apice.png" alt="Ápice" className="h-8 w-8 border border-amber-500/40 logo-crop" />
         <span className="font-serif font-extrabold tracking-wide">Ápice</span>
       </div>
       <nav className="space-y-2">

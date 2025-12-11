@@ -20,7 +20,7 @@ export default function Navbar({ dark, onToggleDark, onOpenAI, onToggleSidebar }
         <button className="btn-secondary" onClick={onToggleSidebar} aria-label="Abrir menu">
           <Menu size={16} />
         </button>
-        <img src="/logo-apice.png" alt="Ápice" className="h-8 w-8 rounded border border-amber-500/40 object-cover" />
+        <img src="/logo-apice.png" alt="Ápice" className="h-8 w-8 border border-amber-500/40 logo-crop" />
         <span className="font-serif font-extrabold tracking-wide">Ápice</span>
       </div>
       <div className="flex items-center gap-2">
