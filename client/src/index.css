@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap");
+
+:root { --gold: #FFD700; --darkred: #450a0a; --app-bg: radial-gradient(1200px 600px at 20% 0%, #ffffff 0%, #f8fafc 35%, #fff5e6 60%, #ffe8c7 100%); --text: #0f172a; }
+.dark { --app-bg: radial-gradient(1200px 600px at 20% 0%, #000000 0%, #0a0a0a 35%, #120000 60%, var(--darkred) 100%); --text: #e5e7eb; }
+.light { --app-bg: radial-gradient(1200px 600px at 20% 0%, #ffffff 0%, #f8fafc 35%, #fff5e6 60%, #ffe8c7 100%); --text: #000000; }
+
+@layer base {
+  * { border-color: rgba(255, 255, 255, 0.08); }
+  body { background: var(--app-bg); color: var(--text); font-family: Inter, Montserrat, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+  button, a { cursor: pointer; }
+}
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+@layer components {
+  .fade-in-up { animation: fadeInUp .6s ease both; }
+  .card-premium { border: 1px solid rgba(255,215,0,.18); background-color: rgba(0,0,0,.40); color: #f1f5f9; border-radius: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,.55); backdrop-filter: blur(12px); overflow: hidden; transition: all .3s ease; }
+  .card-premium:hover { transform: translateY(-4px); box-shadow: 0 0 15px rgba(255,215,0,.25); }
+  .btn-premium { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem .9rem; border-radius: .75rem; background-image: linear-gradient(135deg, #b45309 0%, var(--gold) 60%, #b45309 100%); color: #1a1a1a; box-shadow: 0 4px 16px rgba(255,215,0,.18); min-height: 40px; transition: all .3s ease; border: 1px solid rgba(255,215,0,.35); }
+  .btn-premium:hover { filter: brightness(1.06); transform: translateY(-2px); box-shadow: 0 0 15px rgba(255,215,0,.30); }
+  .btn-secondary { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem .9rem; border-radius: .75rem; background-color: rgba(255,255,255,.06); color: #e5e7eb; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 4px 12px rgba(0,0,0,.25); min-height: 40px; transition: all .3s ease; }
+  .btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 0 15px rgba(255,215,0,.20); }
+  .input-premium { width: 100%; padding: .625rem .9rem; border-radius: .75rem; background-color: rgba(0,0,0,.45); color: #f1f5f9; border: 1px solid rgba(255,255,255,.12); min-height: 42px; transition: all .2s ease; }
+  .input-premium::placeholder { color: #a1a1aa; }
+  .input-premium:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--gold); border-color: var(--gold); }
+  .select-premium { width: 100%; padding: .625rem .9rem; border-radius: .75rem; background-color: rgba(0,0,0,.45); color: #f1f5f9; border: 1px solid rgba(255,255,255,.12); min-height: 42px; transition: all .2s ease; }
+  .select-premium:focus-visible { outline: none; box-shadow: 0 0 0 2px var(--gold); border-color: var(--gold); }
+  .table-premium { width: 100%; font-size: .875rem; }
+  .table-premium th { text-align: left; padding: .5rem .75rem; background-color: rgba(0,0,0,.35); color: #a1a1aa; }
+  .table-premium td { padding: .5rem .75rem; border-top: 1px solid rgba(255,255,255,.08); }
+  .badge-income { padding: .125rem .5rem; border-radius: .5rem; color: #052e1a; background-color: #22c55e; }
+  .badge-expense { padding: .125rem .5rem; border-radius: .5rem; color: #3b0b0b; background-color: #f43f5e; }
+  .glass-sidebar { background-color: rgba(0,0,0,.50); backdrop-filter: blur(14px); border-right: 1px solid rgba(255,215,0,.18); }
+  .light .card-premium { background-color: rgba(255,255,255,.85); color: #000000; border: 1px solid rgba(204,165,21,.40); box-shadow: 0 12px 36px rgba(0,0,0,.18); }
+  .light .card-premium:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,.24); }
+  .light .btn-secondary { background-color: rgba(255,255,255,.80); color: #000000; border: 1px solid rgba(0,0,0,.20); box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+  .light .input-premium, .light .select-premium { background-color: rgba(255,255,255,.92); color: #000000; border: 1px solid rgba(0,0,0,.20); }
+  .light .input-premium::placeholder, .light .select-premium::placeholder { color: #4b5563; }
+  .light .table-premium th { background-color: rgba(255,255,255,.90); color: #1f2937; }
+  .light .glass-sidebar { background-color: rgba(255,255,255,.75); border-right-color: rgba(204,165,21,.35); box-shadow: 0 16px 32px rgba(0,0,0,.12); }
+  .light .glass-sidebar, .light .glass-sidebar * { color: #000000 !important; }
+}
