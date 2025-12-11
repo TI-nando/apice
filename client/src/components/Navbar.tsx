@@ -20,8 +20,8 @@ export default function Navbar({ dark, onToggleDark, onOpenAI, onToggleSidebar }
         <button className="btn-secondary" onClick={onToggleSidebar} aria-label="Abrir menu">
           <Menu size={16} />
         </button>
-        <span className={dark ? "h-8 w-8 rounded bg-gradient-to-br from-red-700 to-red-500 border border-amber-500/40" : "h-8 w-8 rounded bg-gradient-to-br from-amber-300 to-amber-500 border border-amber-500/40"} />
-        <span className="font-semibold tracking-wide">Ápice</span>
+        <img src="/logo-apice.png" alt="Ápice" className="h-8 w-8 rounded border border-amber-500/40 object-cover" />
+        <span className="font-serif font-extrabold tracking-wide">Ápice</span>
       </div>
       <div className="flex items-center gap-2">
         <button className="btn-premium" onClick={onOpenAI} aria-label="Conselhos da AI">

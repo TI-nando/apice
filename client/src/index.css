@@ -1,8 +1,8 @@
 @import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap");
 
-:root { --gold: #FFD700; --darkred: #450a0a; --app-bg: radial-gradient(1200px 600px at 20% 0%, #ffffff 0%, #f8fafc 35%, #fff5e6 60%, #ffe8c7 100%); --text: #0f172a; }
-.dark { --app-bg: radial-gradient(1200px 600px at 20% 0%, #000000 0%, #0a0a0a 35%, #120000 60%, var(--darkred) 100%); --text: #e5e7eb; }
+:root { --gold: #FFD700; --darkred: #450a0a; --app-bg: linear-gradient(to bottom, #000000, var(--darkred)); --text: #e5e7eb; }
+.dark { --app-bg: linear-gradient(to bottom, #000000, var(--darkred)); --text: #e5e7eb; }
 .light { --app-bg: radial-gradient(1200px 600px at 20% 0%, #ffffff 0%, #f8fafc 35%, #fff5e6 60%, #ffe8c7 100%); --text: #000000; }
 
 @layer base {
@@ -31,7 +31,8 @@
   .table-premium td { padding: .5rem .75rem; border-top: 1px solid rgba(255,255,255,.08); }
   .badge-income { padding: .125rem .5rem; border-radius: .5rem; color: #052e1a; background-color: #22c55e; }
   .badge-expense { padding: .125rem .5rem; border-radius: .5rem; color: #3b0b0b; background-color: #f43f5e; }
-  .glass-sidebar { background-color: rgba(0,0,0,.50); backdrop-filter: blur(14px); border-right: 1px solid rgba(255,215,0,.18); }
+  .glass-sidebar { background-color: rgba(0,0,0,.50); backdrop-filter: blur(18px); border-right: 1px solid rgba(255,215,0,.18); }
+  .login-hero { background-image: linear-gradient(to bottom, rgba(0,0,0,.60), rgba(69,10,10,.70)), url('/logo-apice.png'); background-size: cover; background-position: center; background-repeat: no-repeat; }
   .light .card-premium { background-color: rgba(255,255,255,.85); color: #000000; border: 1px solid rgba(204,165,21,.40); box-shadow: 0 12px 36px rgba(0,0,0,.18); }
   .light .card-premium:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(0,0,0,.24); }
   .light .btn-secondary { background-color: rgba(255,255,255,.80); color: #000000; border: 1px solid rgba(0,0,0,.20); box-shadow: 0 6px 20px rgba(0,0,0,.12); }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Moon, Sun } from "lucide-react";
 import { api } from "../services/api";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -32,25 +33,28 @@ export default function Login() {
   }
 
   return (
-    <div className={cn(dark ? "dark" : "light", "min-h-screen")}>
+    <div className={cn(dark ? "dark" : "light", "min-h-screen login-hero")}>
       <div className="min-h-screen flex items-center justify-center px-4">
+        <button className="btn-secondary fixed top-4 right-4" aria-label="Alternar tema" onClick={() => {
+          const next = !dark;
+          setDark(next);
+          const root = document.documentElement;
+          if (next) {
+            root.classList.add("dark");
+            root.classList.remove("light");
+            localStorage.setItem("theme", "dark");
+          } else {
+            root.classList.remove("dark");
+            root.classList.add("light");
+            localStorage.setItem("theme", "light");
+          }
+        }}>
+          {dark ? <Sun size={16} /> : <Moon size={16} />}
+        </button>
         <div className="w-full max-w-md card-premium p-6">
-          <div className="flex justify-between items-center mb-4">
-            <h1 className="text-xl font-semibold">FinanceFlow</h1>
-            <button className="btn-secondary" onClick={() => {
-              const next = !dark;
-              setDark(next);
-              const root = document.documentElement;
-              if (next) {
-                root.classList.add("dark");
-                root.classList.remove("light");
-                localStorage.setItem("theme", "dark");
-              } else {
-                root.classList.remove("dark");
-                root.classList.add("light");
-                localStorage.setItem("theme", "light");
-              }
-            }}>Tema</button>
+          <div className="mb-4 text-center flex items-center justify-center gap-2">
+            <img src="/logo-apice.png" alt="Ápice" className="h-10 w-10 rounded border border-amber-500/40 object-cover" />
+            <h1 className="text-xl font-semibold">Ápice</h1>
           </div>
           <form onSubmit={submit} className="space-y-4">
             <div>
@@ -66,7 +70,7 @@ export default function Login() {
               <button type="submit" disabled={loading} className="btn-premium w-full sm:w-36 justify-center">{loading ? "Entrando..." : "Entrar"}</button>
             </div>
           </form>
-          <p className="mt-4 text-sm text-gray-300">
+          <p className="mt-4 text-sm text-gray-300 text-center">
             Não tem conta? <Link to="/register" className="text-indigo-400 hover:underline">Registre-se</Link>
           </p>
         </div>

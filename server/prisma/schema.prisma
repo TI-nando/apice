@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -19,6 +18,12 @@ enum TransactionType {
   EXPENSE
 }
 
+enum Cadence {
+  MONTHLY
+  WEEKLY
+  YEARLY
+}
+
 model User {
   id         Int          @id @default(autoincrement())
   name       String
@@ -26,6 +31,8 @@ model User {
   password   String
   createdAt  DateTime     @default(now())
   transactions Transaction[]
+  budgets     Budget[]
+  recurrings  RecurringTransaction[]
 }
 
 model Transaction {
@@ -37,4 +44,31 @@ model Transaction {
   date        DateTime
   userId      Int
   user        User            @relation(fields: [userId], references: [id])
+}
+
+model Budget {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  category  String
+  limit     Decimal  @db.Decimal(10, 2)
+  month     Int
+  year      Int
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, category, month, year])
+}
+
+model RecurringTransaction {
+  id          Int             @id @default(autoincrement())
+  userId      Int
+  description String
+  amount      Decimal          @db.Decimal(10, 2)
+  type        TransactionType
+  category    String
+  cadence     Cadence
+  nextDate    DateTime
+  active      Boolean          @default(true)
+  createdAt   DateTime         @default(now())
+  user        User             @relation(fields: [userId], references: [id])
 }
